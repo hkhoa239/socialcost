@@ -1,0 +1,27 @@
+# Repeat of smoke.yaml seed 1, separate launches: checks that a seed reproduces its episode.
+name: socialcost_smoke_repro
+output: /opt/arena_ws/data/socialcost/smoke_test_repro
+world: map_empty
+sensors: turtlebot_oakd
+sample_hz: 5.0
+duration_s: 20.0
+# Recording starts this long after the episode start (robot spawn), so it never depends on
+# when the recorder attached; Isaac is still booting the first seconds of the first episode.
+warmup_s: 8.0
+fresh_margin_s: 0.5
+scenarios: [socialcost_conversation, socialcost_group_walk]
+seeds: [1]
+episodes_per_seed: 1
+# Label: the social layer alone, robot-centred and yaw-aligned (x forward, y left),
+# 10 m x 10 m at 0.05 m (200 x 200 cells), parameters from this overlay block.
+label:
+  overlay: arena_robots/arena_robots/config/nav2/overlays/social_cost_layer.yaml
+  costmap: local_costmap
+  size_m: 10.0
+  resolution: 0.05
+# Live reference: a Nav2 costmap with only the social layer, rolling, map-aligned, same size.
+live_costmap: true
+launch_args:
+  - robot.mobile.params_overlay:=social_cost_layer
+splits:
+  test: {seeds: [2]}

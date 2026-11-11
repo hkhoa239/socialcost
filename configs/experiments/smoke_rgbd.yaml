@@ -1,0 +1,12 @@
+name: smoke_rgbd
+inputs: rgbd
+label: native
+datasets: [/opt/arena_ws/data/socialcost/smoke_test]
+split_file: /opt/arena_ws/data/socialcost/experiments/smoke_split.json
+epochs: 2
+overfit_epochs: 60
+batch: 8
+lr: 0.002
+seed: 0
+workers: 4
+out_dir: /opt/arena_ws/data/socialcost/experiments/debug

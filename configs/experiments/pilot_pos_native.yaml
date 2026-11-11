@@ -1,0 +1,14 @@
+# SOCIALCOST pilot_v1 estimator: inputs pos, label native. FOV-restricted loss; selection on FOV nonzero + social-extra MAE.
+name: pilot_pos_native
+inputs: pos
+label: native
+datasets:
+- /opt/arena_ws/data/socialcost/datasets/pilot_v1
+split_file: /opt/arena_ws/data/socialcost/experiments/splits_pilot_v1.json
+epochs: 15
+batch: 8
+lr: 0.002
+seed: 0
+workers: 6
+loss_region: fov
+out_dir: /opt/arena_ws/data/socialcost/experiments/pilot_v1

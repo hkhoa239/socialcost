@@ -1,0 +1,16 @@
+# TurtleBot4 with its OAK-D RGB-D camera, as spawned by Arena on sim:=isaac in env_0.
+# The OAK-D is the URDF gz rgbd_camera `rgbd_camera` (arena_robots .../turtlebot/urdf/sensors/oakd.urdf.xacro):
+# 320x240, horizontal FOV 1.25 rad, near 0.3 m, far 100 m, 30 Hz requested.
+# Isaac publishes RGB (rgb8) and depth (32FC1, metres, DistanceToImagePlane) from one render product.
+robot: turtlebot
+rgb_topic: /arena/env_0/task_generator_node/turtlebot/oakd/image
+depth_topic: /arena/env_0/task_generator_node/turtlebot/oakd/depth_image
+camera_info_topic: /arena/env_0/task_generator_node/turtlebot/oakd/camera_info
+odom_topic: /arena/env_0/task_generator_node/turtlebot/odom
+peds_topic: /arena/env_0/arena_peds
+episode_topic: /arena/env_0/task_generator_node/state/episode
+interactions_topic: /arena/env_0/task_generator_node/interactions
+agent_meta_topic: /arena/env_0/task_generator_node/agent_meta
+map_frame: map
+base_frame: env_0/turtlebot/base_link
+camera_frame: env_0/turtlebot/oakd_rgb_camera_optical_frame

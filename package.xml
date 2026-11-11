@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>socialcost</name>
+  <version>0.1.0</version>
+  <description>SOCIALCOST dataset pipeline: offline Arena social-cost labels, RGB-D episode recorder, dataset validation.</description>
+  <maintainer email="khuynhledang@gmail.com">SOCIALCOST</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
+  <build_depend>arena_social_cost_layer</build_depend>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>arena_people_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+  <exec_depend>nav2_costmap_2d</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

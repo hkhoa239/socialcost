@@ -1,0 +1,13 @@
+# extended/2.0 label extensions (socialcost/extensions.py). Changing a value means a new version.
+membership: true
+halt: true
+halt_weight: 1.0
+halt_length: 2.5
+halt_sigma: 1.2
+halt_half_angle_deg: 30.0
+halt_base_halfwidth: 0.5
+# Hypothesis under evaluation, not an established rule: wheelchair users get a larger personal space.
+mobility: true
+mobility_markers: [wheelchair]
+mobility_radius_scale: 1.5
+mobility_sigma_scale: 1.5

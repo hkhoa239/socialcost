@@ -1,0 +1,20 @@
+# Closed-loop evaluation of the costmap estimators on navigation_challenge_v1 (36 configurations, 5 kinds).
+# Same Nav2 stack (overlay socialcost_estimate) in every arm; only estimator_node's output differs.
+#   bodies       all-zero social layer (obstacles + bodies only)                      lower reference
+#   pos_u        benchmark position-only probabilistic U-Net (no social semantics)
+#   typemix      ours: counterfactual stage 1 (tracks + RGB-D crops) -> TypeMix, mean cost
+#   typemix_ucb  ours, mu + 1 sigma (risk-averse use of the predicted uncertainty)
+#   typemix_gt   TypeMix fed the true social types (privileged: same model, no stage-1 errors)
+#   oracle_ext   ground-truth extended/2.0 label painted on the costmap lattice (privileged upper reference)
+# Learned arms use the extended-label models (runs/main/*_extended_s{0,1,2}, 3-seed ensembles).
+output: /opt/arena_ws/data/socialcost/experiments/navigation/challenge_v1
+challenge: /opt/arena_ws/data/socialcost/navigation_challenge_v1/navigation_challenge_v1.json
+controllers: [dwb]
+methods: [bodies, oracle_ext, pos_u, typemix, typemix_ucb, typemix_gt]
+method_specs:
+  bodies: {method: zero}
+  pos_u: {args: [--bench-label, extended]}
+  typemix: {args: [--bench-label, extended]}
+  typemix_ucb: {args: [--bench-label, extended, --ucb-k, "1.0"]}
+  typemix_gt: {args: [--bench-label, extended]}
+wall_budget_s: 700

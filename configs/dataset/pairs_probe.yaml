@@ -1,0 +1,90 @@
+# Gate 2 probe: one pair per family (body set bA), both conditions, bodies-only Nav2, warm-up episode discarded.
+name: socialcost_pairs_probe_v2
+output: /opt/arena_ws/data/socialcost/datasets/pairs_probe_v2
+world: map_empty
+sensors: turtlebot_oakd
+sample_hz: 5.0
+duration_s: 20.0
+warmup_s: 8.0
+fresh_margin_s: 0.5
+require_cost: false
+label:
+  overlay: arena_robots/arena_robots/config/nav2/overlays/social_cost_layer.yaml
+  costmap: local_costmap
+  size_m: 10.0
+  resolution: 0.05
+live_costmap: true
+launch_args: []
+jobs:
+- scenario: socialcost_pair_conversation_bA_on
+  seed: 21
+  pair_id: conversation_bA
+  condition: 'on'
+  family: conversation
+  body_set: bA
+  observability: visually observable (talk-gesture clip, partner gaze); clearer over
+    a short history
+  held_out_bodies: false
+- scenario: socialcost_pair_conversation_bA_off
+  seed: 21
+  pair_id: conversation_bA
+  condition: 'off'
+  family: conversation
+  body_set: bA
+  observability: visually observable (talk-gesture clip, partner gaze); clearer over
+    a short history
+  held_out_bodies: false
+- scenario: socialcost_pair_halt_bA_on
+  seed: 21
+  pair_id: halt_bA
+  condition: 'on'
+  family: halt
+  body_set: bA
+  observability: visually observable (raised hand), to be confirmed in rendered frames
+  held_out_bodies: false
+- scenario: socialcost_pair_halt_bA_off
+  seed: 21
+  pair_id: halt_bA
+  condition: 'off'
+  family: halt
+  body_set: bA
+  observability: visually observable (raised hand), to be confirmed in rendered frames
+  held_out_bodies: false
+- scenario: socialcost_pair_wheelchair_bA_on
+  seed: 21
+  pair_id: wheelchair_bA
+  condition: 'on'
+  family: wheelchair
+  body_set: bA
+  observability: visually observable; the two conditions also differ in body asset
+    (confound)
+  held_out_bodies: false
+- scenario: socialcost_pair_wheelchair_bA_off
+  seed: 21
+  pair_id: wheelchair_bA
+  condition: 'off'
+  family: wheelchair
+  body_set: bA
+  observability: visually observable; the two conditions also differ in body asset
+    (confound)
+  held_out_bodies: false
+- scenario: socialcost_pair_queue_bA_on
+  seed: 21
+  pair_id: queue_bA
+  condition: 'on'
+  family: queue
+  body_set: bA
+  observability: 'not visually observable from a single frame: same people, poses
+    and table in both conditions'
+  held_out_bodies: false
+- scenario: socialcost_pair_queue_bA_off
+  seed: 21
+  pair_id: queue_bA
+  condition: 'off'
+  family: queue
+  body_set: bA
+  observability: 'not visually observable from a single frame: same people, poses
+    and table in both conditions'
+  held_out_bodies: false
+splits: {}
+warmup_episode: true

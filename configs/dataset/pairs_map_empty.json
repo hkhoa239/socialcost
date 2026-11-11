@@ -1,0 +1,282 @@
+[
+  {
+    "pair_id": "conversation_bA",
+    "family": "conversation",
+    "body_set": "bA",
+    "held_out_bodies": false,
+    "placement_offset": [
+      0.0,
+      0.0
+    ],
+    "world": "map_empty",
+    "on": "socialcost_pair_conversation_bA_on",
+    "off": "socialcost_pair_conversation_bA_off",
+    "observability": "visually observable (talk-gesture clip, partner gaze); clearer over a short history"
+  },
+  {
+    "pair_id": "conversation_bB",
+    "family": "conversation",
+    "body_set": "bB",
+    "held_out_bodies": false,
+    "placement_offset": [
+      0.6,
+      -0.3
+    ],
+    "world": "map_empty",
+    "on": "socialcost_pair_conversation_bB_on",
+    "off": "socialcost_pair_conversation_bB_off",
+    "observability": "visually observable (talk-gesture clip, partner gaze); clearer over a short history"
+  },
+  {
+    "pair_id": "conversation_bC",
+    "family": "conversation",
+    "body_set": "bC",
+    "held_out_bodies": false,
+    "placement_offset": [
+      -0.5,
+      0.4
+    ],
+    "world": "map_empty",
+    "on": "socialcost_pair_conversation_bC_on",
+    "off": "socialcost_pair_conversation_bC_off",
+    "observability": "visually observable (talk-gesture clip, partner gaze); clearer over a short history"
+  },
+  {
+    "pair_id": "conversation_bD",
+    "family": "conversation",
+    "body_set": "bD",
+    "held_out_bodies": false,
+    "placement_offset": [
+      1.0,
+      0.3
+    ],
+    "world": "map_empty",
+    "on": "socialcost_pair_conversation_bD_on",
+    "off": "socialcost_pair_conversation_bD_off",
+    "observability": "visually observable (talk-gesture clip, partner gaze); clearer over a short history"
+  },
+  {
+    "pair_id": "conversation_bH",
+    "family": "conversation",
+    "body_set": "bH",
+    "held_out_bodies": true,
+    "placement_offset": [
+      -0.8,
+      -0.2
+    ],
+    "world": "map_empty",
+    "on": "socialcost_pair_conversation_bH_on",
+    "off": "socialcost_pair_conversation_bH_off",
+    "observability": "visually observable (talk-gesture clip, partner gaze); clearer over a short history"
+  },
+  {
+    "pair_id": "halt_bA",
+    "family": "halt",
+    "body_set": "bA",
+    "held_out_bodies": false,
+    "placement_offset": [
+      0.0,
+      0.0
+    ],
+    "world": "map_empty",
+    "on": "socialcost_pair_halt_bA_on",
+    "off": "socialcost_pair_halt_bA_off",
+    "observability": "visually observable (raised hand), to be confirmed in rendered frames"
+  },
+  {
+    "pair_id": "halt_bB",
+    "family": "halt",
+    "body_set": "bB",
+    "held_out_bodies": false,
+    "placement_offset": [
+      0.6,
+      -0.3
+    ],
+    "world": "map_empty",
+    "on": "socialcost_pair_halt_bB_on",
+    "off": "socialcost_pair_halt_bB_off",
+    "observability": "visually observable (raised hand), to be confirmed in rendered frames"
+  },
+  {
+    "pair_id": "halt_bC",
+    "family": "halt",
+    "body_set": "bC",
+    "held_out_bodies": false,
+    "placement_offset": [
+      -0.5,
+      0.4
+    ],
+    "world": "map_empty",
+    "on": "socialcost_pair_halt_bC_on",
+    "off": "socialcost_pair_halt_bC_off",
+    "observability": "visually observable (raised hand), to be confirmed in rendered frames"
+  },
+  {
+    "pair_id": "halt_bD",
+    "family": "halt",
+    "body_set": "bD",
+    "held_out_bodies": false,
+    "placement_offset": [
+      1.0,
+      0.3
+    ],
+    "world": "map_empty",
+    "on": "socialcost_pair_halt_bD_on",
+    "off": "socialcost_pair_halt_bD_off",
+    "observability": "visually observable (raised hand), to be confirmed in rendered frames"
+  },
+  {
+    "pair_id": "halt_bH",
+    "family": "halt",
+    "body_set": "bH",
+    "held_out_bodies": true,
+    "placement_offset": [
+      -0.8,
+      -0.2
+    ],
+    "world": "map_empty",
+    "on": "socialcost_pair_halt_bH_on",
+    "off": "socialcost_pair_halt_bH_off",
+    "observability": "visually observable (raised hand), to be confirmed in rendered frames"
+  },
+  {
+    "pair_id": "wheelchair_bA",
+    "family": "wheelchair",
+    "body_set": "bA",
+    "held_out_bodies": false,
+    "placement_offset": [
+      0.0,
+      0.0
+    ],
+    "world": "map_empty",
+    "on": "socialcost_pair_wheelchair_bA_on",
+    "off": "socialcost_pair_wheelchair_bA_off",
+    "observability": "visually observable; the two conditions also differ in body asset (confound)"
+  },
+  {
+    "pair_id": "wheelchair_bB",
+    "family": "wheelchair",
+    "body_set": "bB",
+    "held_out_bodies": false,
+    "placement_offset": [
+      0.6,
+      -0.3
+    ],
+    "world": "map_empty",
+    "on": "socialcost_pair_wheelchair_bB_on",
+    "off": "socialcost_pair_wheelchair_bB_off",
+    "observability": "visually observable; the two conditions also differ in body asset (confound)"
+  },
+  {
+    "pair_id": "wheelchair_bC",
+    "family": "wheelchair",
+    "body_set": "bC",
+    "held_out_bodies": false,
+    "placement_offset": [
+      -0.5,
+      0.4
+    ],
+    "world": "map_empty",
+    "on": "socialcost_pair_wheelchair_bC_on",
+    "off": "socialcost_pair_wheelchair_bC_off",
+    "observability": "visually observable; the two conditions also differ in body asset (confound)"
+  },
+  {
+    "pair_id": "wheelchair_bD",
+    "family": "wheelchair",
+    "body_set": "bD",
+    "held_out_bodies": false,
+    "placement_offset": [
+      1.0,
+      0.3
+    ],
+    "world": "map_empty",
+    "on": "socialcost_pair_wheelchair_bD_on",
+    "off": "socialcost_pair_wheelchair_bD_off",
+    "observability": "visually observable; the two conditions also differ in body asset (confound)"
+  },
+  {
+    "pair_id": "wheelchair_bH",
+    "family": "wheelchair",
+    "body_set": "bH",
+    "held_out_bodies": true,
+    "placement_offset": [
+      -0.8,
+      -0.2
+    ],
+    "world": "map_empty",
+    "on": "socialcost_pair_wheelchair_bH_on",
+    "off": "socialcost_pair_wheelchair_bH_off",
+    "observability": "visually observable; the two conditions also differ in body asset (confound)"
+  },
+  {
+    "pair_id": "queue_bA",
+    "family": "queue",
+    "body_set": "bA",
+    "held_out_bodies": false,
+    "placement_offset": [
+      0.0,
+      0.0
+    ],
+    "world": "map_empty",
+    "on": "socialcost_pair_queue_bA_on",
+    "off": "socialcost_pair_queue_bA_off",
+    "observability": "not visually observable from a single frame: same people, poses and table in both conditions"
+  },
+  {
+    "pair_id": "queue_bB",
+    "family": "queue",
+    "body_set": "bB",
+    "held_out_bodies": false,
+    "placement_offset": [
+      0.6,
+      -0.3
+    ],
+    "world": "map_empty",
+    "on": "socialcost_pair_queue_bB_on",
+    "off": "socialcost_pair_queue_bB_off",
+    "observability": "not visually observable from a single frame: same people, poses and table in both conditions"
+  },
+  {
+    "pair_id": "queue_bC",
+    "family": "queue",
+    "body_set": "bC",
+    "held_out_bodies": false,
+    "placement_offset": [
+      -0.5,
+      0.4
+    ],
+    "world": "map_empty",
+    "on": "socialcost_pair_queue_bC_on",
+    "off": "socialcost_pair_queue_bC_off",
+    "observability": "not visually observable from a single frame: same people, poses and table in both conditions"
+  },
+  {
+    "pair_id": "queue_bD",
+    "family": "queue",
+    "body_set": "bD",
+    "held_out_bodies": false,
+    "placement_offset": [
+      1.0,
+      0.3
+    ],
+    "world": "map_empty",
+    "on": "socialcost_pair_queue_bD_on",
+    "off": "socialcost_pair_queue_bD_off",
+    "observability": "not visually observable from a single frame: same people, poses and table in both conditions"
+  },
+  {
+    "pair_id": "queue_bH",
+    "family": "queue",
+    "body_set": "bH",
+    "held_out_bodies": true,
+    "placement_offset": [
+      -0.8,
+      -0.2
+    ],
+    "world": "map_empty",
+    "on": "socialcost_pair_queue_bH_on",
+    "off": "socialcost_pair_queue_bH_off",
+    "observability": "not visually observable from a single frame: same people, poses and table in both conditions"
+  }
+]

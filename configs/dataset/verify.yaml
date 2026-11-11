@@ -1,0 +1,23 @@
+# Semantic verification recordings (tests A, B, C-control, F): one seed each, 30 s windows
+# opening 8 s after the episode start; the lifecycle talkers wait 12 s first, so before / during / after all fall inside.
+name: socialcost_verify
+output: /opt/arena_ws/data/socialcost/verify_scenarios
+world: map_empty
+sensors: turtlebot_oakd
+sample_hz: 5.0
+duration_s: 30.0
+warmup_s: 8.0
+fresh_margin_s: 0.5
+scenarios: [socialcost_verify_empty, socialcost_verify_single, socialcost_verify_conversation_off, socialcost_verify_lifecycle, socialcost_verify_queue_rotated]
+seeds: [1]
+episodes_per_seed: 1
+require_cost: false
+label:
+  overlay: arena_robots/arena_robots/config/nav2/overlays/social_cost_layer.yaml
+  costmap: local_costmap
+  size_m: 10.0
+  resolution: 0.05
+live_costmap: true
+launch_args:
+  - robot.mobile.params_overlay:=social_cost_layer
+splits: {}

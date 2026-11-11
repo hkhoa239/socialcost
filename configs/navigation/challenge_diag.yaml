@@ -1,0 +1,14 @@
+# Diagnostic runs for the pilot stalls of our arm (Nav2 "Failed to make progress"): N02 (conversation) and N09 (raised
+# hand), with map dumps every 2nd tick. typemix_t12: costs below the label floor (12) zeroed; typemix_t12_ema: plus an
+# exponential moving average (A = 0.5) of the published grid. typemix_gt succeeded in the pilot on both configurations.
+output: /opt/arena_ws/data/socialcost/experiments/navigation/challenge_diag
+challenge: /opt/arena_ws/data/socialcost/navigation_challenge_v1/navigation_challenge_v1.json
+only: [N02, N09]
+controllers: [dwb]
+methods: [typemix, typemix_t12, typemix_t12_ema, typemix_gt]
+method_specs:
+  typemix: {args: [--bench-label, extended, --dump-dir, "{run_dir}/dump", --dump-every, "2"]}
+  typemix_t12: {method: typemix, args: [--bench-label, extended, --bench-threshold, "12", --dump-dir, "{run_dir}/dump", --dump-every, "2"]}
+  typemix_t12_ema: {method: typemix, args: [--bench-label, extended, --bench-threshold, "12", --ema, "0.5", --dump-dir, "{run_dir}/dump", --dump-every, "2"]}
+  typemix_gt: {args: [--bench-label, extended, --dump-dir, "{run_dir}/dump", --dump-every, "2"]}
+wall_budget_s: 700

@@ -1,0 +1,21 @@
+# SOCIALCOST RGB-D diagnosis, Phase F: controlled re-evaluation (mppi). Same Nav2 overlay (socialcost_estimate) in every arm.
+# bodies = all-zero grid; pos = learned position model (clean positions, diagnostic); oracle_ext = extended oracle painted
+# directly on the costmap lattice; oracle_ext_replay = the same oracle through the exact RGB-D path (camera-triggered,
+# robot-frame label grid, FOV mask, resample); rgbd = original RGB-D model; rgbd_t13 = RGB-D + validation-calibrated
+# threshold 13 (removes the 12-cost background floor; outputs/rgbd_diagnosis/phaseD_calibration.json).
+# Robot-free references (robot 8-10 m away) are run once per seed with DWB and shared by both controllers.
+output: /opt/arena_ws/data/socialcost/experiments/navigation/nav_v2
+scenarios: [socialcost_nav_conversation, socialcost_nav_halt, socialcost_nav_queue]
+reference_scenarios: []
+controllers: [mppi]
+seeds: [1, 2, 3]
+methods: [bodies, pos, oracle_ext, oracle_ext_replay, rgbd, rgbd_t13]
+checkpoints:
+  pos: /opt/arena_ws/data/socialcost/experiments/pilot_v1/pilot_pos_extended/best.pt
+  rgbd: /opt/arena_ws/data/socialcost/experiments/pilot_v1/pilot_rgbd_extended/best.pt
+method_specs:
+  rgbd_t13:
+    method: rgbd
+    checkpoint: /opt/arena_ws/data/socialcost/experiments/pilot_v1/pilot_rgbd_extended/best.pt
+    post: /opt/arena_ws/data/socialcost/outputs/rgbd_diagnosis/specs/rgbd_threshold13.json
+episode_timeout_wall_s: 1200

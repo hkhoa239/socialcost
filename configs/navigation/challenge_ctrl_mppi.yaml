@@ -1,0 +1,15 @@
+# Controller diagnosis (mppi): can Nav2 drive the ground-truth extended costmap?
+# Variant: MPPI controller instead of DWB, cost and overlay unchanged.
+# Ground-truth arm and the bodies-only arm (no social cost), repeat 0, on the 18 configurations where it failed in challenge_v2 plus 6 it solved (controls).
+# Baseline = challenge_v2 oracle_ext. Selection and the follow-up full run: data/socialcost/scripts/run_ctrl_diag.sh.
+output: /opt/arena_ws/data/socialcost/experiments/navigation/ctrl_diag/mppi
+challenge: /opt/arena_ws/data/socialcost/navigation_challenge_v1/navigation_challenge_v1.json
+controllers: [mppi]
+overlay: socialcost_estimate
+estimator_args_all: []
+repeats: 1
+methods: [oracle_ext, bodies]
+method_specs:
+  bodies: {method: zero}
+only: [N01, N04, N05, N06, N07, N11, N13, N14, N15, N16, N18, N19, N21, N23, N25, N27, N29, N31, N02, N09, N17, N20, N26, N33]
+wall_budget_s: 520

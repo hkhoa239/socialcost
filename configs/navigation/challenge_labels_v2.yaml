@@ -1,0 +1,28 @@
+# Navigation on the socialcost_v2 labels: position U-Net vs ours, native and extended label, same scenarios / seeds / controller.
+# Controller: social cost in the GLOBAL costmap only (overlay socialcost_estimate_global.yaml): the planner routes around social
+# regions when it can and through them when it must; the local controller is Nav2 default and sees only obstacles and bodies
+# (no freeze on faint cost). Ground-truth and no-social-cost arms run in the same batch as references and as the controller check.
+# Every learned arm: label floor 12 (values < 12 published as 0), v2 checkpoints (runs/v2), seed ensemble 0-2, grids dumped for videos.
+#   bodies       no social cost
+#   gt_nat       v2 native ground truth          gt_ext       v2 extended ground truth
+#   posu_nat     position U-Net, native v2       posu_ext     position U-Net, extended v2
+#   ours_nat     CF stage 1 + TypeMix, native v2 ours_ext     CF stage 1 + TypeMix, extended v2
+#                                                oursmem_ext  ours + temporal memory (hold + decay + geometry), extended v2
+# Scoring: native arms against the v2 native ground truth (meter v2n), extended arms against v2 extended (meter v2e).
+output: /opt/arena_ws/data/socialcost/experiments/navigation/challenge_labels_v2
+challenge: /opt/arena_ws/data/socialcost/navigation_challenge_v1/navigation_challenge_v1.json
+controllers: [dwb]
+overlay: /opt/arena_ws/src/Arena/arena_robots/arena_robots/config/nav2/overlays/socialcost_estimate_global.yaml
+repeats: 1
+methods: [bodies, gt_ext, ours_ext, oursmem_ext, posu_ext, gt_nat, ours_nat, posu_nat]
+method_specs:
+  bodies: {method: zero}
+  gt_ext: {method: oracle_ext, args: [--label-spec, v2, --label-channel, extended]}
+  gt_nat: {method: oracle_ext, args: [--label-spec, v2, --label-channel, native]}
+  posu_ext: {method: pos_u, args: [--bench-runs, v2, --bench-label, extended_v2, --bench-threshold, "12", --dump-dir, "{run_dir}/dump", --dump-every, "2"]}
+  posu_nat: {method: pos_u, args: [--bench-runs, v2, --bench-label, native_v2, --bench-threshold, "12", --dump-dir, "{run_dir}/dump", --dump-every, "2"]}
+  ours_ext: {method: typemix, args: [--bench-runs, v2, --bench-label, extended_v2, --bench-threshold, "12", --dump-dir, "{run_dir}/dump", --dump-every, "2"]}
+  ours_nat: {method: typemix, args: [--bench-runs, v2, --bench-label, native_v2, --bench-threshold, "12", --dump-dir, "{run_dir}/dump", --dump-every, "2"]}
+  oursmem_ext: {method: typemix, args: [--bench-runs, v2, --bench-label, extended_v2, --bench-memory, decay_geo, --bench-threshold, "12", --dump-dir, "{run_dir}/dump", --dump-every, "2"]}
+wall_budget_s: 520
+max_load: 24

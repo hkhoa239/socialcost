@@ -1,0 +1,13 @@
+# SOCIALCOST closed-loop evaluation, MPPI (conversation and queue only, budget). Same Nav2 overlay (socialcost_estimate) in every arm; arms differ only in the published grid.
+# bodies = all-zero grid; rule = personal space from clean positions; pos = learned position model (clean positions, diagnostic);
+# rgbd = learned RGB-D model; oracle = arena-native label from simulator state; oracle_ext = extended label from simulator state.
+output: /opt/arena_ws/data/socialcost/experiments/navigation/nav_v1
+scenarios: [socialcost_nav_conversation, socialcost_nav_queue]
+reference_scenarios: []
+controllers: [mppi]
+seeds: [1, 2]
+methods: [bodies, rule, pos, rgbd, oracle, oracle_ext]
+checkpoints:
+  pos: /opt/arena_ws/data/socialcost/experiments/pilot_v1/pilot_pos_extended/best.pt
+  rgbd: /opt/arena_ws/data/socialcost/experiments/pilot_v1/pilot_rgbd_extended/best.pt
+episode_timeout_wall_s: 1500

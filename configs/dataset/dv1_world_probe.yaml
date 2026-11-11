@@ -1,0 +1,49 @@
+# dataset_v1 Stage A world probe: one short episode per candidate world.
+name: socialcost_dv1_world_probe
+output: /opt/arena_ws/data/socialcost/datasets/dv1_world_probe
+world: map_empty
+sensors: turtlebot_oakd
+sample_hz: 5.0
+duration_s: 25.0
+warmup_s: 8.0
+fresh_margin_s: 0.5
+warmup_episode: true
+require_cost: false
+label:
+  overlay: arena_robots/arena_robots/config/nav2/overlays/social_cost_layer.yaml
+  costmap: local_costmap
+  size_m: 10.0
+  resolution: 0.05
+live_costmap: false
+launch_args: []
+jobs:
+- scenario: scv1_probe_airport
+  seed: 1
+  world: airport
+  family: probe
+  pair_id: probe_airport
+  condition: ''
+- scenario: scv1_probe_reception
+  seed: 1
+  world: reception
+  family: probe
+  pair_id: probe_reception
+  condition: ''
+- scenario: scv1_probe_hospital_1
+  seed: 1
+  world: hospital_1
+  family: probe
+  pair_id: probe_hospital_1
+  condition: ''
+- scenario: scv1_probe_office_1
+  seed: 1
+  world: office_1
+  family: probe
+  pair_id: probe_office_1
+  condition: ''
+- scenario: scv1_probe_socialcost_office
+  seed: 1
+  world: socialcost_office
+  family: probe
+  pair_id: probe_socialcost_office
+  condition: ''

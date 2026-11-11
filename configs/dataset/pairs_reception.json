@@ -1,0 +1,114 @@
+[
+  {
+    "pair_id": "reception:conversation_bA",
+    "family": "conversation",
+    "body_set": "bA",
+    "held_out_bodies": false,
+    "placement_offset": [
+      0.0,
+      0.0
+    ],
+    "world": "reception",
+    "on": "socialcost_pair_conversation_bA_on",
+    "off": "socialcost_pair_conversation_bA_off",
+    "observability": "visually observable (talk-gesture clip, partner gaze); clearer over a short history"
+  },
+  {
+    "pair_id": "reception:conversation_bH",
+    "family": "conversation",
+    "body_set": "bH",
+    "held_out_bodies": true,
+    "placement_offset": [
+      -0.8,
+      -0.2
+    ],
+    "world": "reception",
+    "on": "socialcost_pair_conversation_bH_on",
+    "off": "socialcost_pair_conversation_bH_off",
+    "observability": "visually observable (talk-gesture clip, partner gaze); clearer over a short history"
+  },
+  {
+    "pair_id": "reception:halt_bA",
+    "family": "halt",
+    "body_set": "bA",
+    "held_out_bodies": false,
+    "placement_offset": [
+      0.0,
+      0.0
+    ],
+    "world": "reception",
+    "on": "socialcost_pair_halt_bA_on",
+    "off": "socialcost_pair_halt_bA_off",
+    "observability": "visually observable (raised hand), to be confirmed in rendered frames"
+  },
+  {
+    "pair_id": "reception:halt_bH",
+    "family": "halt",
+    "body_set": "bH",
+    "held_out_bodies": true,
+    "placement_offset": [
+      -0.8,
+      -0.2
+    ],
+    "world": "reception",
+    "on": "socialcost_pair_halt_bH_on",
+    "off": "socialcost_pair_halt_bH_off",
+    "observability": "visually observable (raised hand), to be confirmed in rendered frames"
+  },
+  {
+    "pair_id": "reception:wheelchair_bA",
+    "family": "wheelchair",
+    "body_set": "bA",
+    "held_out_bodies": false,
+    "placement_offset": [
+      0.0,
+      0.0
+    ],
+    "world": "reception",
+    "on": "socialcost_pair_wheelchair_bA_on",
+    "off": "socialcost_pair_wheelchair_bA_off",
+    "observability": "visually observable; the two conditions also differ in body asset (confound)"
+  },
+  {
+    "pair_id": "reception:wheelchair_bH",
+    "family": "wheelchair",
+    "body_set": "bH",
+    "held_out_bodies": true,
+    "placement_offset": [
+      -0.8,
+      -0.2
+    ],
+    "world": "reception",
+    "on": "socialcost_pair_wheelchair_bH_on",
+    "off": "socialcost_pair_wheelchair_bH_off",
+    "observability": "visually observable; the two conditions also differ in body asset (confound)"
+  },
+  {
+    "pair_id": "reception:queue_bA",
+    "family": "queue",
+    "body_set": "bA",
+    "held_out_bodies": false,
+    "placement_offset": [
+      0.0,
+      0.0
+    ],
+    "world": "reception",
+    "on": "socialcost_pair_queue_bA_on",
+    "off": "socialcost_pair_queue_bA_off",
+    "observability": "not visually observable from a single frame: same people, poses and table in both conditions"
+  },
+  {
+    "pair_id": "reception:queue_bH",
+    "family": "queue",
+    "body_set": "bH",
+    "held_out_bodies": true,
+    "placement_offset": [
+      -0.8,
+      -0.2
+    ],
+    "world": "reception",
+    "on": "socialcost_pair_queue_bH_on",
+    "off": "socialcost_pair_queue_bH_off",
+    "observability": "not visually observable from a single frame: same people, poses and table in both conditions"
+  }
+]

@@ -1,0 +1,14 @@
+batch: 8
+datasets:
+- /opt/arena_ws/data/socialcost/datasets/pairs_probe_v2
+epochs: 1
+inputs: pos
+label: extended
+lr: 0.002
+name: overfit_pos_extended_fov
+out_dir: /opt/arena_ws/data/socialcost/experiments/gate4_overfit
+overfit_epochs: 150
+seed: 0
+split_file: /opt/arena_ws/data/socialcost/experiments/overfit_split.json
+workers: 4
+loss_region: fov

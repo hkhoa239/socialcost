@@ -1,0 +1,24 @@
+# Closed-loop evaluation on navigation_challenge_v1 (36 configurations), after the pilot / diagnostic:
+#  - every learned arm publishes its mean cost with values below the label floor (12 = cost_bias x 252; no labelled cell is
+#    below it) set to 0. Without it the sigmoid's diffuse low-cost tail stalled DWB ("Failed to make progress") on N02 for
+#    both ours and TypeMix + true types; with it ours reached the goal in 48 s (ground truth: 50 s). Same rule for all arms.
+#  - Nav2 goal aborts end the run (nav2_aborted); 2 repeats (a full pass per repeat); wall budget 520 s (time limit 180 s sim)
+#   bodies       all-zero social layer                                        lower reference
+#   pos_u        position-only probabilistic U-Net (no social semantics)
+#   typemix      ours: counterfactual stage 1 (tracks + RGB-D crops) -> TypeMix
+#   typemix_ucb  ours, mu + 1 sigma
+#   typemix_gt   TypeMix fed the true social types (privileged)
+#   oracle_ext   ground-truth extended label (privileged upper reference)
+output: /opt/arena_ws/data/socialcost/experiments/navigation/challenge_v2
+challenge: /opt/arena_ws/data/socialcost/navigation_challenge_v1/navigation_challenge_v1.json
+controllers: [dwb]
+repeats: 2
+methods: [bodies, oracle_ext, pos_u, typemix, typemix_ucb, typemix_gt]
+method_specs:
+  bodies: {method: zero}
+  pos_u: {args: [--bench-label, extended, --bench-threshold, "12", --dump-dir, "{run_dir}/dump", --dump-every, "2"]}
+  typemix: {args: [--bench-label, extended, --bench-threshold, "12", --dump-dir, "{run_dir}/dump", --dump-every, "2"]}
+  typemix_ucb: {args: [--bench-label, extended, --ucb-k, "1.0", --bench-threshold, "12", --dump-dir, "{run_dir}/dump", --dump-every, "2"]}
+  typemix_gt: {args: [--bench-label, extended, --bench-threshold, "12", --dump-dir, "{run_dir}/dump", --dump-every, "2"]}
+wall_budget_s: 520
+# 2026-11-07: learned arms also save every 2nd published grid to <run>/dump (for videos; does not change what is published)

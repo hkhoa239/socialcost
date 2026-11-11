@@ -1,0 +1,14 @@
+# Camera-only arms on the challenge_v2 setup (DWB, overlay socialcost_estimate, cost as is), 1 pass (compare with v2 repeat 0).
+# Run only if no controller variant qualifies in the diagnosis; otherwise ctrl_select.py adds the same arms to challenge_v3.
+#   rgb    benchmark RGB image U-Net (ground-plane lifting), extended label, seeds 0-2 averaged; output masked to the camera FOV
+#   rgbd   benchmark RGB-D image U-Net (depth lifting), same
+# Same label floor as the other learned arms (values < 12 published as 0).
+output: /opt/arena_ws/data/socialcost/experiments/navigation/challenge_v2cam
+challenge: /opt/arena_ws/data/socialcost/navigation_challenge_v1/navigation_challenge_v1.json
+controllers: [dwb]
+repeats: 1
+methods: [rgb, rgbd]
+method_specs:
+  rgb: {method: rgb, args: [--checkpoint, "/opt/arena_ws/data/costmap_bench/runs/main/rgb_extended_s0/best.pt,/opt/arena_ws/data/costmap_bench/runs/main/rgb_extended_s1/best.pt,/opt/arena_ws/data/costmap_bench/runs/main/rgb_extended_s2/best.pt", --bench-threshold, "12", --dump-dir, "{run_dir}/dump", --dump-every, "2"]}
+  rgbd: {method: rgbd, args: [--checkpoint, "/opt/arena_ws/data/costmap_bench/runs/main/rgbd_extended_s0/best.pt,/opt/arena_ws/data/costmap_bench/runs/main/rgbd_extended_s1/best.pt,/opt/arena_ws/data/costmap_bench/runs/main/rgbd_extended_s2/best.pt", --bench-threshold, "12", --dump-dir, "{run_dir}/dump", --dump-every, "2"]}
+wall_budget_s: 520

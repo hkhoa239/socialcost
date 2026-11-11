@@ -1,0 +1,41 @@
+# Gate 1: five launches of one seed with the warm-up protocol, compared slot by slot.
+name: socialcost_repro_gate1
+output: /opt/arena_ws/data/socialcost/datasets/repro_gate1
+world: map_empty
+sensors: turtlebot_oakd
+sample_hz: 5.0
+duration_s: 20.0
+warmup_s: 8.0
+fresh_margin_s: 0.5
+require_cost: false
+label:
+  overlay: arena_robots/arena_robots/config/nav2/overlays/social_cost_layer.yaml
+  costmap: local_costmap
+  size_m: 10.0
+  resolution: 0.05
+live_costmap: true
+launch_args:
+- robot.mobile.params_overlay:=social_cost_layer
+jobs:
+- scenario: socialcost_repro
+  seed: 7
+  rep: 0
+  family: repro
+- scenario: socialcost_repro
+  seed: 7
+  rep: 1
+  family: repro
+- scenario: socialcost_repro
+  seed: 7
+  rep: 2
+  family: repro
+- scenario: socialcost_repro
+  seed: 7
+  rep: 3
+  family: repro
+- scenario: socialcost_repro
+  seed: 7
+  rep: 4
+  family: repro
+splits: {}
+warmup_episode: true
