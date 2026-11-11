@@ -1,0 +1,29 @@
+# SOCIALCOST closed-loop: TALK_TO pair straddling the 14 m route (pass between or around).  [robot-free reference: robot driven along y = 21.5 instead of 11.5]
+format: arena-scenario/2
+humans:
+- name: talker_a
+  model: casual_female_african_young
+  pose:
+  - 14.4
+  - 11.5
+  - 0.0
+  agent:
+    agent_type: ./talker.yaml
+- name: talker_b
+  model: worker_male_asian_middleage
+  pose:
+  - 15.6
+  - 11.5
+  - 3.14159
+  agent:
+    agent_type: ./talker.yaml
+robots:
+- start:
+  - 8.0
+  - 21.5
+  - 0.0
+  phases:
+  - goto:
+    - 22.0
+    - 21.5
+    - 0.0

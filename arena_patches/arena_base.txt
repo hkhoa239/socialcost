@@ -1,0 +1,14 @@
+# Arena revision the patches were made against (git submodule status at export, 2026-11-11)
+Arena c9de66d156442e9b086f8ff3e6e2d1b842e6bd8b https://github.com/voshch/Arena.git
+be878198e78121a4524b55714a58477f05d04ba0 arena_assets (heads/master)
+3b1d7de3a717fc4f6c78b44700beff9ddb7fb234 arena_auditory
+c67898f3c970f824baa6141ebcf5a83631db37af arena_evaluation
+2abb8e8d049cfc05271109a8a307fcca7f8dec30 arena_hearing
+7dc86d67a9716f4bb29f2f0d02a293beafaed157 arena_isaac (heads/isaac6.1.0)
+fea3a8cfce88a09c47a3ea6a5b7dbba3747461ec arena_mujoco (heads/jazzy)
+760b63b8d50456cf520470fd9c9693ce5732aa9b arena_planners (heads/jazzy)
+a352f3becf31c784690d530e2992c1cc3af65a55 arena_robots (heads/jazzy)
+fb6fe1b843c520001eb6af7ef2f74780500b0237 arena_tools
+1e862797eb1a096bafb31cb198c48b9203dcf52a arena_training (heads/jazzy)
+d077081710e03fd4c25bf952c5af5c7f61f2d84e flatsim (heads/jazzy)
+022b18343da5dedd9ca7b8fd04975c3e7133555b humansim (heads/jazzy)

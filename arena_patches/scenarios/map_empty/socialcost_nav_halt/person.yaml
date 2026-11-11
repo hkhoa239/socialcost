@@ -1,0 +1,16 @@
+name: pair_halt
+mode: behavior_tree
+extends: adult
+initial_sequence: act
+sequences:
+  act:
+    steps:
+      act:
+        attention:
+          halt:
+            azimuth: 0
+            elevation: 10
+        duration:
+          mean: 1000.0
+          std: 0.0
+    then: act

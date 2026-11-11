@@ -1,0 +1,14 @@
+format: arena-kg/1
+uses: [core@2]
+entities:
+- {id: 'room:corridor_west', props: {description: '3 m wide west corridor'}}
+- {id: 'room:corridor_wide', props: {description: '4 m wide corridor section by the offices'}}
+- {id: 'room:corridor_mid', props: {description: '3 m corridor at the south branch junction'}}
+- {id: 'room:corridor_narrow', props: {description: '2.2 m narrow east corridor'}}
+- {id: 'room:branch_north', props: {description: '2.5 m side passage to the north'}}
+- {id: 'room:branch_south', props: {description: '3 m side passage to the south'}}
+- {id: 'room:office_north', props: {description: 'Open-plan office'}}
+- {id: 'room:meeting_south', props: {description: 'Meeting room'}}
+- {id: 'room:lounge_east', props: {description: 'Lounge'}}
+facts: []
+constraints: []

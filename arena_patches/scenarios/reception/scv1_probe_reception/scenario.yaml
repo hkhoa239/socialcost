@@ -1,0 +1,37 @@
+# SOCIALCOST dataset_v1 world probe (navigability, load time, coordinate offset, on-demand body fetch).
+format: arena-scenario/2
+humans:
+- name: talker_a
+  model: casual_male_asian_young
+  pose:
+  - 21.4
+  - 10
+  - 0.0
+  agent:
+    agent_type: ./talker.yaml
+- name: talker_b
+  model: Residential/resident_female_african_old
+  pose:
+  - 22.6
+  - 10
+  - 3.14159
+  agent:
+    agent_type: ./talker.yaml
+- name: walker_a
+  model: Office/office_female_caucasian_middleage
+  pose:
+  - 17
+  - 4
+  - 1.5708
+  agent:
+    agent_type: ./walker.yaml
+robots:
+- start:
+  - 27
+  - 18
+  - -1.5708
+  phases:
+  - goto:
+    - 20
+    - 3
+    - -1.5708

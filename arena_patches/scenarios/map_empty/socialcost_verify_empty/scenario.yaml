@@ -1,0 +1,7 @@
+# SOCIALCOST verification A: no pedestrians. The social layer must paint nothing.
+format: arena-scenario/2
+humans: []
+robots:
+- start: [3.0, 11.5, 0.0]
+  phases:
+  - {goto: [27.0, 11.5, 0.0]}

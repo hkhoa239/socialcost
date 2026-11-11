@@ -1,0 +1,11 @@
+# SOCIALCOST verification F: interaction lifecycle. Two people stand 6 m apart (no interaction),
+# walk together, talk (TALK_TO) for 10 s, then walk off in opposite directions and stand.
+# The robot route runs 3 m to the side (y = 14.5), so it watches without entering the scene.
+format: arena-scenario/2
+humans:
+- {name: talker_a, model: casual_female_african_young, pose: [12.0, 11.5, 0.0], agent: {agent_type: ./talker_a.yaml}}
+- {name: talker_b, model: worker_male_asian_middleage, pose: [18.0, 11.5, 3.14159], agent: {agent_type: ./talker_b.yaml}}
+robots:
+- start: [3.0, 14.5, 0.0]
+  phases:
+  - {goto: [27.0, 14.5, 0.0]}

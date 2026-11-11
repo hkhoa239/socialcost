@@ -1,0 +1,13 @@
+# SOCIALCOST scenario C: three people walk together (GROUP_WALK) west along y = 11.0 at ~0.7 m/s
+# while the robot drives east along y = 11.5, so the robot meets the group head-on in mid-room.
+# The leader seeks GROUP_WALK first and so becomes participants[0], the formation anchor;
+# the followers seek after a short hold and take slots on the leader's trail.
+format: arena-scenario/2
+humans:
+- {name: walker_lead, model: Office/office_male_african_middleage, pose: [28.0, 11.0, 3.14159], agent: {agent_type: ./leader.yaml, desired_velocity: 0.7}}
+- {name: walker_left, model: Office/office_female_caucasian_young, pose: [28.8, 10.2, 3.14159], agent: {agent_type: ./follower.yaml, desired_velocity: 0.9}}
+- {name: walker_right, model: casual_female_african_young, pose: [28.8, 11.8, 3.14159], agent: {agent_type: ./follower.yaml, desired_velocity: 0.9}}
+robots:
+- start: [3.0, 11.5, 0.0]
+  phases:
+  - {goto: [26.0, 11.5, 0.0]}

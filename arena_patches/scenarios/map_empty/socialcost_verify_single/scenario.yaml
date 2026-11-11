@@ -1,0 +1,8 @@
+# SOCIALCOST verification B: one stationary pedestrian, 1.5 m beside the robot route.
+format: arena-scenario/2
+humans:
+- {name: stander, model: casual_female_african_young, pose: [15.0, 13.0, 3.14159], agent: {agent_type: ./stander.yaml}}
+robots:
+- start: [3.0, 11.5, 0.0]
+  phases:
+  - {goto: [27.0, 11.5, 0.0]}

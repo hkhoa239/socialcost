@@ -1,0 +1,19 @@
+name: probe_walker
+mode: behavior_tree
+extends: adult
+desired_velocity: 0.8
+initial_sequence: walk
+sequences:
+  walk:
+    steps:
+      leg0:
+        kind: go_to
+        target_pose:
+          x: 17
+          y: 20
+          theta: 0.0
+      hold:
+        duration:
+          mean: 1000.0
+          std: 0.0
+    then: walk

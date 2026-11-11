@@ -1,0 +1,40 @@
+# SOCIALCOST group-walk variant diagonal, body set bA (GROUP_WALK, native semantics unchanged).
+format: arena-scenario/2
+humans:
+- name: walker_lead
+  model: casual_female_african_young
+  pose:
+  - 26.0
+  - 17.0
+  - -2.7
+  agent:
+    agent_type: ./leader.yaml
+    desired_velocity: 0.8
+- name: walker_left
+  model: worker_male_asian_middleage
+  pose:
+  - 26.6
+  - 17.8
+  - -2.7
+  agent:
+    agent_type: ./follower.yaml
+    desired_velocity: 1.0
+- name: walker_right
+  model: arenian
+  pose:
+  - 26.9
+  - 16.4
+  - -2.7
+  agent:
+    agent_type: ./follower.yaml
+    desired_velocity: 1.0
+robots:
+- start:
+  - 3.0
+  - 11.5
+  - 0.0
+  phases:
+  - goto:
+    - 26.0
+    - 11.5
+    - 0.0

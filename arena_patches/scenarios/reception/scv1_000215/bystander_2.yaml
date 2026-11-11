@@ -1,0 +1,114 @@
+name: scv1_bystander_2
+mode: behavior_tree
+extends: adult
+initial_sequence: main
+desired_velocity:
+  mean: 0.505
+  std: 0.0
+  clip_low: 0.2
+  clip_high: 2.0
+sequences:
+  main:
+    steps:
+      s00:
+        duration:
+          mean: 2.17
+          std: 0.0
+      s01:
+        kind: go_to
+        target_pose:
+          x: 23.975
+          y: 11.975
+          theta: -1.5724
+      s02:
+        kind: go_to
+        target_pose:
+          x: 23.975
+          y: 8.575
+          theta: -1.5708
+      s03:
+        kind: go_to
+        target_pose:
+          x: 25.325
+          y: 5.575
+          theta: -1.1479
+      s04:
+        duration:
+          mean: 1.16
+          std: 0.0
+      s05:
+        kind: go_to
+        target_pose:
+          x: 25.225
+          y: 7.65
+          theta: 1.619
+      s06:
+        kind: go_to
+        target_pose:
+          x: 25.125
+          y: 9.725
+          theta: 1.619
+      s07:
+        duration:
+          mean: 2.42
+          std: 0.0
+      s08:
+        kind: go_to
+        target_pose:
+          x: 25.325
+          y: 8.325
+          theta: -1.4289
+      s09:
+        kind: go_to
+        target_pose:
+          x: 26.6
+          y: 5.55
+          theta: -1.1401
+      s10:
+        kind: go_to
+        target_pose:
+          x: 27.875
+          y: 2.775
+          theta: -1.1401
+      s11:
+        duration:
+          mean: 0.4
+          std: 0.0
+      s12:
+        kind: go_to
+        target_pose:
+          x: 27.875
+          y: 4.775
+          theta: 1.5708
+      s13:
+        kind: go_to
+        target_pose:
+          x: 27.875
+          y: 6.775
+          theta: 1.5708
+      s14:
+        kind: go_to
+        target_pose:
+          x: 26.575
+          y: 9.642
+          theta: 1.9965
+      s15:
+        kind: go_to
+        target_pose:
+          x: 25.275
+          y: 12.508
+          theta: 1.9966
+      s16:
+        kind: go_to
+        target_pose:
+          x: 23.975
+          y: 15.375
+          theta: 1.9965
+    then: main
+  rest:
+    steps:
+      hold:
+        duration:
+          mean: 1000.0
+          std: 0.0
+    then: rest

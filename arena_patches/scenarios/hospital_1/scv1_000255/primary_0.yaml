@@ -1,0 +1,36 @@
+name: scv1_primary_0
+mode: behavior_tree
+extends: wheelchair_manual
+initial_sequence: main
+desired_velocity:
+  mean: 0.57
+  std: 0.0
+  clip_low: 0.2
+  clip_high: 2.0
+sequences:
+  main:
+    steps:
+      s00:
+        duration:
+          mean: 9.14
+          std: 0.0
+      s01:
+        kind: go_to
+        target_pose:
+          x: 13.073
+          y: 9.249
+          theta: 0.0903
+      s02:
+        kind: go_to
+        target_pose:
+          x: 13.299
+          y: 6.759
+          theta: -1.4805
+    then: rest
+  rest:
+    steps:
+      hold:
+        duration:
+          mean: 1000.0
+          std: 0.0
+    then: rest

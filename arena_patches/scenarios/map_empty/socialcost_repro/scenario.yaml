@@ -1,0 +1,14 @@
+# SOCIALCOST reproducibility scenario: a short robot route (8 m) so several episodes fit in one
+# launch, a TALK_TO pair 1.8 m beside the route and a GROUP_WALK of three crossing the robot's
+# path head-on, so robot timing, pedestrian motion and interaction activation are all measured.
+format: arena-scenario/2
+humans:
+- {name: talker_a, model: casual_female_african_young, pose: [12.0, 13.3, 0.0], agent: {agent_type: ./talker_a.yaml}}
+- {name: talker_b, model: worker_male_asian_middleage, pose: [13.2, 13.3, 3.14159], agent: {agent_type: ./talker_b.yaml}}
+- {name: walker_lead, model: Office/office_male_african_middleage, pose: [24.0, 9.5, 3.14159], agent: {agent_type: ./leader.yaml, desired_velocity: 0.7}}
+- {name: walker_left, model: Office/office_female_caucasian_young, pose: [24.8, 8.7, 3.14159], agent: {agent_type: ./follower.yaml, desired_velocity: 0.9}}
+- {name: walker_right, model: arenian, pose: [24.8, 10.3, 3.14159], agent: {agent_type: ./follower.yaml, desired_velocity: 0.9}}
+robots:
+- start: [8.0, 11.5, 0.0]
+  phases:
+  - {goto: [16.0, 11.5, 0.0]}

@@ -1,0 +1,40 @@
+diff --git a/arena_isaac/arena_isaac/run_isaacsim.py b/arena_isaac/arena_isaac/run_isaacsim.py
+index c07d984..62280c0 100644
+--- a/arena_isaac/arena_isaac/run_isaacsim.py
++++ b/arena_isaac/arena_isaac/run_isaacsim.py
+@@ -305,6 +305,26 @@ def _newton_apply_solver_cfg() -> None:
+ # matches Isaac's implicit default, pinned so lockstep step projections are exact
+ PHYSICS_DT = 1.0 / 60.0
+ 
++
++def _render_every() -> int:
++    """Opt-in render decimation: /opt/arena_ws/log/isaac_render_every holding N renders every Nth physics step
++    (N=2 renders at 30 Hz, the camera's rate). Absent file = render every step (default behaviour)."""
++    try:
++        with open("/opt/arena_ws/log/isaac_render_every") as f:
++            return max(1, int(f.read().strip()))
++    except (OSError, ValueError):
++        return 1
++
++
++RENDER_EVERY = _render_every()
++_render_tick = 0
++
++
++def _step_world() -> None:
++    global _render_tick
++    _render_tick += 1
++    world.step(render=(_render_tick % RENDER_EVERY == 0))
++
+ newton_guard = None
+ if PHYSICS_ENGINE == "newton":
+     # python.sh does not autoload the newton extensions (only isaac-sim.newton.sh does),
+@@ -584,7 +604,7 @@ def main(args: list[str] | None = None):
+                     was_playing = False
+                     newton_bounce_hold = 30
+                 else:
+-                    world.step(render=True)
++                    _step_world()
+                     controller.publish_clock()
+                     controller.consume_step()
+                     last_step_at = time.monotonic()

@@ -1,0 +1,35 @@
+# Controller diagnosis variant: DWB BaseObstacle.scale 0.1 (as _obs01) and a more patient progress checker
+# (0.2 m within 60 s instead of 20 s), so DWB is not aborted while it waits for people or edges past cost.
+local_costmap:
+  local_costmap:
+    ros__parameters:
+      plugins: ["obstacle_layer", "voxel_layer", "social_estimate_layer", "inflation_layer"]
+      social_estimate_layer:
+        plugin: "nav2_mask_overlay_layer::MaskOverlayLayer"
+        enabled: true
+        combination_method: 1
+        mask_topic: ${env_namespace}/socialcost/estimate
+        transform_tolerance: 0.5
+
+global_costmap:
+  global_costmap:
+    ros__parameters:
+      plugins: ["static_layer", "obstacle_layer", "social_estimate_layer", "inflation_layer", "mask_overlay_layer"]
+      social_estimate_layer:
+        plugin: "nav2_mask_overlay_layer::MaskOverlayLayer"
+        enabled: true
+        combination_method: 1
+        mask_topic: ${env_namespace}/socialcost/estimate
+        transform_tolerance: 0.5
+
+substitutions:
+  controller_plugins_dict:
+    FollowPath:
+      BaseObstacle.sum_scores: true
+      BaseObstacle.scale: 0.1
+
+controller_server:
+  ros__parameters:
+    progress_checker:
+      required_movement_radius: 0.2
+      movement_time_allowance: 60.0

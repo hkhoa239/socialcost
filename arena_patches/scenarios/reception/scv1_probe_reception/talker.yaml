@@ -1,0 +1,15 @@
+name: probe_talker
+mode: behavior_tree
+extends: adult
+initial_sequence: act
+sequences:
+  act:
+    steps:
+      act:
+        interaction: TALK_TO
+        attention:
+          gaze: partner
+        duration:
+          mean: 1000.0
+          std: 0.0
+    then: act

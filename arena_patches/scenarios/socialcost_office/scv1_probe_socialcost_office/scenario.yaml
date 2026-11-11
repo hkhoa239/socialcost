@@ -1,0 +1,37 @@
+# SOCIALCOST dataset_v1 world probe for socialcost_office.
+format: arena-scenario/2
+humans:
+- name: talker_a
+  model: casual_male_asian_young
+  pose:
+  - 19.4
+  - 12.6
+  - 0.0
+  agent:
+    agent_type: ./talker.yaml
+- name: talker_b
+  model: Residential/resident_female_african_old
+  pose:
+  - 20.6
+  - 12.6
+  - 3.14159
+  agent:
+    agent_type: ./talker.yaml
+- name: walker_a
+  model: Office/office_female_caucasian_middleage
+  pose:
+  - 30.0
+  - 10.6
+  - 3.14159
+  agent:
+    agent_type: ./walker.yaml
+robots:
+- start:
+  - 3.0
+  - 11.5
+  - 0.0
+  phases:
+  - goto:
+    - 19.0
+    - 11.5
+    - 0.0

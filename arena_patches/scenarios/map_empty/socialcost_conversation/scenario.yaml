@@ -1,0 +1,11 @@
+# SOCIALCOST scenario A: a two-person conversation (TALK_TO) on the robot's straight-line route.
+# The talkers stand 1.2 m apart across y = 11.5; the start-goal line passes between them, so a
+# planner chooses between cutting through the interaction region and going around it.
+format: arena-scenario/2
+humans:
+- {name: talker_a, model: casual_female_african_young, pose: [14.4, 11.5, 0.0], agent: {agent_type: ./talker_a.yaml}}
+- {name: talker_b, model: worker_male_asian_middleage, pose: [15.6, 11.5, 3.14159], agent: {agent_type: ./talker_b.yaml}}
+robots:
+- start: [3.0, 11.5, 0.0]
+  phases:
+  - {goto: [27.0, 11.5, 0.0]}

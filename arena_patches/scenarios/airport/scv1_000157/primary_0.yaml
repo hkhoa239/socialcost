@@ -1,0 +1,27 @@
+name: scv1_primary_0
+mode: behavior_tree
+extends: adult
+initial_sequence: main
+sequences:
+  main:
+    steps:
+      s00:
+        duration:
+          mean: 13.97
+          std: 0.0
+      s01:
+        attention:
+          halt:
+            azimuth: 0
+            elevation: 10
+        duration:
+          mean: 1000.0
+          std: 0.0
+    then: rest
+  rest:
+    steps:
+      hold:
+        duration:
+          mean: 1000.0
+          std: 0.0
+    then: rest

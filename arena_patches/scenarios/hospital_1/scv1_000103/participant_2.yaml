@@ -1,0 +1,29 @@
+name: scv1_participant_2
+mode: behavior_tree
+extends: adult
+initial_sequence: main
+sequences:
+  main:
+    steps:
+      s00:
+        duration:
+          mean: 9.82
+          std: 0.0
+      s01:
+        interaction: GROUP_CONVERSATION
+        attention:
+          gaze: partner
+        duration:
+          mean: 8.51
+          std: 0.0
+        patience:
+          mean: 2000.0
+          std: 0.0
+    then: rest
+  rest:
+    steps:
+      hold:
+        duration:
+          mean: 1000.0
+          std: 0.0
+    then: rest

@@ -1,0 +1,15 @@
+# SOCIALCOST "social cost shapes the path, only obstacles block" variant of socialcost_estimate.yaml:
+# the predicted social cost grid (${env_namespace}/socialcost/estimate, see socialcost_estimate.yaml) is merged by maximum
+# into the GLOBAL costmap only. The global planner routes around social regions when it can and through them when it
+# must (social cost stays below lethal); the local costmap and the DWB critics are Nav2 defaults (physical obstacles and
+# pedestrian bodies only, no BaseObstacle retune), so the controller never stops for social cost alone.
+global_costmap:
+  global_costmap:
+    ros__parameters:
+      plugins: ["static_layer", "obstacle_layer", "social_estimate_layer", "inflation_layer", "mask_overlay_layer"]
+      social_estimate_layer:
+        plugin: "nav2_mask_overlay_layer::MaskOverlayLayer"
+        enabled: true
+        combination_method: 1
+        mask_topic: ${env_namespace}/socialcost/estimate
+        transform_tolerance: 0.5

@@ -1,0 +1,24 @@
+name: socialcost_lifecycle_b
+mode: behavior_tree
+extends: adult
+
+initial_sequence: lifecycle
+
+sequences:
+  lifecycle:
+    steps:
+      before:
+        duration: {mean: 12.0, std: 0.0}
+      meet:
+        kind: go_to
+        target_pose: {x: 15.6, y: 11.5}
+      talk:
+        interaction: TALK_TO
+        attention:
+          gaze: partner
+        duration: {mean: 10.0, std: 0.0}
+      leave:
+        kind: go_to
+        target_pose: {x: 21.0, y: 11.5}
+      after:
+        duration: {mean: 1000.0, std: 0.0}

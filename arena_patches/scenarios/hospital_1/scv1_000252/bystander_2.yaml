@@ -1,0 +1,108 @@
+name: scv1_bystander_2
+mode: behavior_tree
+extends: adult
+initial_sequence: main
+desired_velocity:
+  mean: 0.937
+  std: 0.0
+  clip_low: 0.2
+  clip_high: 2.0
+sequences:
+  main:
+    steps:
+      s00:
+        duration:
+          mean: 0.23
+          std: 0.0
+      s01:
+        kind: go_to
+        target_pose:
+          x: 11.675
+          y: 21.075
+          theta: -0.792
+      s02:
+        kind: go_to
+        target_pose:
+          x: 11.775
+          y: 17.875
+          theta: -1.5396
+      s03:
+        kind: go_to
+        target_pose:
+          x: 13.775
+          y: 16.825
+          theta: -0.4834
+      s04:
+        kind: go_to
+        target_pose:
+          x: 15.775
+          y: 15.775
+          theta: -0.4834
+      s05:
+        duration:
+          mean: 0.71
+          std: 0.0
+      s06:
+        kind: go_to
+        target_pose:
+          x: 15.225
+          y: 16.325
+          theta: 2.3562
+      s07:
+        kind: go_to
+        target_pose:
+          x: 12.125
+          y: 17.6
+          theta: 2.7514
+      s08:
+        kind: go_to
+        target_pose:
+          x: 9.025
+          y: 18.875
+          theta: 2.7514
+      s09:
+        duration:
+          mean: 0.79
+          std: 0.0
+      s10:
+        kind: go_to
+        target_pose:
+          x: 9.025
+          y: 22.675
+          theta: 1.5708
+      s11:
+        kind: go_to
+        target_pose:
+          x: 9.025
+          y: 26.475
+          theta: 1.5708
+      s12:
+        kind: go_to
+        target_pose:
+          x: 8.425
+          y: 27.775
+          theta: 2.0032
+      s13:
+        duration:
+          mean: 0.42
+          std: 0.0
+      s14:
+        kind: go_to
+        target_pose:
+          x: 8.425
+          y: 25.575
+          theta: -1.5708
+      s15:
+        kind: go_to
+        target_pose:
+          x: 9.325
+          y: 23.475
+          theta: -1.1659
+    then: main
+  rest:
+    steps:
+      hold:
+        duration:
+          mean: 1000.0
+          std: 0.0
+    then: rest

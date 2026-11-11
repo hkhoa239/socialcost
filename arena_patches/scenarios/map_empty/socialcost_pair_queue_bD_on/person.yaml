@@ -1,0 +1,17 @@
+name: pair_queuer
+mode: behavior_tree
+extends: adult
+initial_sequence: act
+sequences:
+  act:
+    steps:
+      act:
+        target: desk
+        interaction: QUEUE_USE
+        duration:
+          mean: 1000.0
+          std: 0.0
+        patience:
+          mean: 2000.0
+          std: 0.0
+    then: act

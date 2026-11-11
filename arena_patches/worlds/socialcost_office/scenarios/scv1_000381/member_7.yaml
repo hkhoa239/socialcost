@@ -1,0 +1,24 @@
+name: scv1_member_7
+mode: behavior_tree
+extends: adult
+initial_sequence: main
+sequences:
+  main:
+    steps:
+      s00:
+        target: desk
+        interaction: QUEUE_USE
+        duration:
+          mean: 6.2
+          std: 0.0
+        patience:
+          mean: 2000.0
+          std: 0.0
+    then: main
+  rest:
+    steps:
+      hold:
+        duration:
+          mean: 1000.0
+          std: 0.0
+    then: rest

@@ -1,0 +1,20 @@
+# SOCIALCOST scenario B: four people queue (QUEUE_USE) at a service point (a table; Isaac needs
+# a model with a USD representation, which the Hospital bedside table lacks).
+# The service point stands at (15, 17.5); with capacity 1 one person is served and the others
+# wait in the FIFO line, which grows toward -y and ends ~1.3 m from the robot route y = 12.5.
+# (Yaw +pi/2 on this table puts its line on the -y side.) The robot starts 11 m west of the line.
+format: arena-scenario/2
+objects:
+- name: service_point
+  model: table
+  pose: [15.0, 17.5, 1.5708]
+  humansim: {type: desk, capacity: 1, interaction_radius: 1.0, formation: {type: line, params: {base_step: 0.8, front_offset: 0.6}}}
+humans:
+- {name: queuer_1, model: casual_female_african_young, pose: [13.0, 15.0, 0.0], agent: {agent_type: ./queuer.yaml}}
+- {name: queuer_2, model: worker_male_asian_middleage, pose: [17.0, 14.5, 3.14159], agent: {agent_type: ./queuer.yaml}}
+- {name: queuer_3, model: arenian, pose: [13.0, 13.0, 0.0], agent: {agent_type: ./queuer.yaml}}
+- {name: queuer_4, model: Hospital/nurse_female_caucasian_young, pose: [17.0, 12.8, 3.14159], agent: {agent_type: ./queuer.yaml}}
+robots:
+- start: [4.0, 12.5, 0.0]
+  phases:
+  - {goto: [26.0, 12.5, 0.0]}

@@ -1,0 +1,25 @@
+diff --git a/arena_humansim/arena_humansim/core/agent_manager.py b/arena_humansim/arena_humansim/core/agent_manager.py
+index 42caaae..5973653 100644
+--- a/arena_humansim/arena_humansim/core/agent_manager.py
++++ b/arena_humansim/arena_humansim/core/agent_manager.py
+@@ -2374,6 +2374,12 @@ class AgentManager(Node):
+         self._meta_published = None
+         self._meta_dirty = True
+ 
++    def _force_agent_gestures(self) -> None:
++        """Republish AgentGestures at the next tick even if unchanged: the bridge drops its gestures on
++        reset, and a held gesture (e.g. halt) of a respawned agent would otherwise never be resent."""
++        self._gestures_published = None
++        self._gestures_dirty = True
++
+     def _own_rows(self) -> np.ndarray:
+         """Pool rows of the engine's own agents, external mirrors excluded."""
+         n = self._pool.n
+@@ -2793,6 +2799,7 @@ class AgentManager(Node):
+             self._wipe()
+         self._apply_parameters()
+         self._force_agent_meta()
++        self._force_agent_gestures()
+         response.success = True
+         response.message = "Parameters applied" if request.soft else "Simulation reset"
+         self._logger.info(response.message)

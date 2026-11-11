@@ -1,0 +1,30 @@
+name: scv1_primary_0
+mode: behavior_tree
+extends: adult
+initial_sequence: main
+desired_velocity:
+  mean: 0.69
+  std: 0.0
+  clip_low: 0.2
+  clip_high: 2.0
+sequences:
+  main:
+    steps:
+      s00:
+        duration:
+          mean: 9.99
+          std: 0.0
+      s01:
+        kind: go_to
+        target_pose:
+          x: 43.892
+          y: 18.958
+          theta: 0.0
+    then: rest
+  rest:
+    steps:
+      hold:
+        duration:
+          mean: 1000.0
+          std: 0.0
+    then: rest

@@ -1,0 +1,44 @@
+name: scv1_participant_1
+mode: behavior_tree
+extends: adult
+initial_sequence: main
+desired_velocity:
+  mean: 0.809
+  std: 0.0
+  clip_low: 0.2
+  clip_high: 2.0
+sequences:
+  main:
+    steps:
+      s00:
+        duration:
+          mean: 0.34
+          std: 0.0
+      s01:
+        kind: go_to
+        target_pose:
+          x: 17.036
+          y: 8.087
+          theta: 0.6284
+      s02:
+        duration:
+          mean: 1.0
+          std: 0.0
+      s03:
+        interaction: TALK_TO
+        attention:
+          gaze: partner
+        duration:
+          mean: 1000.0
+          std: 0.0
+        patience:
+          mean: 2000.0
+          std: 0.0
+    then: rest
+  rest:
+    steps:
+      hold:
+        duration:
+          mean: 1000.0
+          std: 0.0
+    then: rest

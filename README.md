@@ -23,3 +23,5 @@ SOCIALCOST data pipeline on Arena + Isaac Sim: robot RGB-D frames paired with th
 Outputs: `/home/robotics/arena_ws/data/socialcost/` (`smoke_test/`, `smoke_test_repro/`, `controller_check/`, `logs/`).
 
 Start with [docs/INSTALLATION.md](docs/INSTALLATION.md).
+**Reproduce everything** (code, Arena + Isaac setup, dataset and models from Hugging Face, training, memory, navigation): [docs/REPRODUCE.md](docs/REPRODUCE.md)
+

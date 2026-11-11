@@ -1,0 +1,18 @@
+# SOCIALCOST verification D2: the queue scenario with the service point turned by -90 deg
+# (yaw 0, the line grows toward -x along y = 13.5, 1 m beside the robot route) and a 1.2 m
+# member spacing instead of 0.8 m. Checks queue membership and geometry at another orientation.
+format: arena-scenario/2
+objects:
+- name: service_point
+  model: table
+  pose: [19.0, 13.5, 0.0]
+  humansim: {type: desk, capacity: 1, interaction_radius: 1.0, formation: {type: line, params: {base_step: 1.2, front_offset: 0.6}}}
+humans:
+- {name: queuer_1, model: casual_female_african_young, pose: [13.0, 15.0, 0.0], agent: {agent_type: ./queuer.yaml}}
+- {name: queuer_2, model: worker_male_asian_middleage, pose: [17.0, 14.5, 3.14159], agent: {agent_type: ./queuer.yaml}}
+- {name: queuer_3, model: arenian, pose: [13.0, 13.0, 0.0], agent: {agent_type: ./queuer.yaml}}
+- {name: queuer_4, model: Hospital/nurse_female_caucasian_young, pose: [17.0, 12.8, 3.14159], agent: {agent_type: ./queuer.yaml}}
+robots:
+- start: [4.0, 12.5, 0.0]
+  phases:
+  - {goto: [26.0, 12.5, 0.0]}

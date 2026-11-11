@@ -1,0 +1,110 @@
+name: scv1_bystander_1
+mode: behavior_tree
+extends: adult
+initial_sequence: main
+desired_velocity:
+  mean: 0.521
+  std: 0.0
+  clip_low: 0.2
+  clip_high: 2.0
+sequences:
+  main:
+    steps:
+      s00:
+        duration:
+          mean: 1.97
+          std: 0.0
+      s01:
+        kind: go_to
+        target_pose:
+          x: 11.875
+          y: 25.425
+          theta: 3.0485
+      s02:
+        kind: go_to
+        target_pose:
+          x: 10.275
+          y: 23.825
+          theta: -2.3562
+      s03:
+        kind: go_to
+        target_pose:
+          x: 8.675
+          y: 22.225
+          theta: -2.3562
+      s04:
+        kind: go_to
+        target_pose:
+          x: 7.325
+          y: 19.225
+          theta: -1.9937
+      s05:
+        duration:
+          mean: 0.44
+          std: 0.0
+      s06:
+        kind: go_to
+        target_pose:
+          x: 7.675
+          y: 20.425
+          theta: 1.287
+      s07:
+        kind: go_to
+        target_pose:
+          x: 8.275
+          y: 20.525
+          theta: 0.1651
+      s08:
+        kind: go_to
+        target_pose:
+          x: 8.425
+          y: 19.325
+          theta: -1.4464
+      s09:
+        kind: go_to
+        target_pose:
+          x: 9.975
+          y: 15.925
+          theta: -1.1431
+      s10:
+        duration:
+          mean: 1.21
+          std: 0.0
+      s11:
+        kind: go_to
+        target_pose:
+          x: 11.675
+          y: 19.125
+          theta: 1.0825
+      s12:
+        kind: go_to
+        target_pose:
+          x: 11.675
+          y: 22.125
+          theta: 1.5708
+      s13:
+        kind: go_to
+        target_pose:
+          x: 11.675
+          y: 25.125
+          theta: 1.5708
+      s14:
+        kind: go_to
+        target_pose:
+          x: 11.975
+          y: 25.425
+          theta: 0.7854
+      s15:
+        kind: go_to
+        target_pose:
+          x: 14.475
+          y: 25.175
+          theta: -0.0997
+    then: main
+  rest:
+    steps:
+      hold:
+        duration:
+          mean: 1000.0
+          std: 0.0
+    then: rest

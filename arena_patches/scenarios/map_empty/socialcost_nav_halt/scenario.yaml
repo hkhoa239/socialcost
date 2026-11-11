@@ -1,0 +1,21 @@
+# SOCIALCOST closed-loop: a person on the route facing the robot with a raised stop hand.
+format: arena-scenario/2
+humans:
+- name: person_a
+  model: casual_female_african_young
+  pose:
+  - 15.0
+  - 11.5
+  - 3.14159
+  agent:
+    agent_type: ./person.yaml
+robots:
+- start:
+  - 8.0
+  - 11.5
+  - 0.0
+  phases:
+  - goto:
+    - 22.0
+    - 11.5
+    - 0.0

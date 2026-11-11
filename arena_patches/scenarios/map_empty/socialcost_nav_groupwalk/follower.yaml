@@ -1,0 +1,14 @@
+name: socialcost_group_follower
+mode: behavior_tree
+extends: adult
+
+initial_sequence: follow
+
+sequences:
+  follow:
+    steps:
+      let_leader_open:
+        duration: {mean: 1.0, std: 0.0}
+      join_group:
+        interaction: GROUP_WALK
+        duration: {mean: 1000.0, std: 0.0}

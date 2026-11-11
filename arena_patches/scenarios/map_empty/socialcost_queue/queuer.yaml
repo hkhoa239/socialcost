@@ -1,0 +1,16 @@
+name: socialcost_queuer
+mode: behavior_tree
+extends: adult
+
+initial_sequence: queue_seq
+
+sequences:
+  queue_seq:
+    steps:
+      wait_turn:
+        # object type, as in hospital_1; object ids are env-prefixed sim paths (env_0/service_point)
+        target: desk
+        interaction: QUEUE_USE
+        duration: {mean: 1000.0, std: 0.0}
+        patience: {mean: 2000.0, std: 0.0}
+    then: queue_seq

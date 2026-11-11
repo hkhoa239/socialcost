@@ -1,0 +1,12 @@
+name: pair_still
+mode: behavior_tree
+extends: adult
+initial_sequence: stand
+sequences:
+  stand:
+    steps:
+      hold:
+        duration:
+          mean: 1000.0
+          std: 0.0
+    then: stand

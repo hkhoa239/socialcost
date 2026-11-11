@@ -1,0 +1,31 @@
+# SOCIALCOST closed-loop arms: a predicted social cost grid (nav_msgs/OccupancyGrid, robot-centred,
+# frame base_link, values round(cost * 100 / 254), max 99) published on ${env_namespace}/socialcost/estimate
+# by socialcost/estimator_node.py, merged by maximum into both costmaps. Same obstacle and inflation
+# layers as the social_cost_layer overlay, so only the source of the social cost differs between arms.
+local_costmap:
+  local_costmap:
+    ros__parameters:
+      plugins: ["obstacle_layer", "voxel_layer", "social_estimate_layer", "inflation_layer"]
+      social_estimate_layer:
+        plugin: "nav2_mask_overlay_layer::MaskOverlayLayer"
+        enabled: true
+        combination_method: 1
+        mask_topic: ${env_namespace}/socialcost/estimate
+        transform_tolerance: 0.5
+
+global_costmap:
+  global_costmap:
+    ros__parameters:
+      plugins: ["static_layer", "obstacle_layer", "social_estimate_layer", "inflation_layer", "mask_overlay_layer"]
+      social_estimate_layer:
+        plugin: "nav2_mask_overlay_layer::MaskOverlayLayer"
+        enabled: true
+        combination_method: 1
+        mask_topic: ${env_namespace}/socialcost/estimate
+        transform_tolerance: 0.5
+
+substitutions:
+  controller_plugins_dict:
+    FollowPath:
+      BaseObstacle.sum_scores: true
+      BaseObstacle.scale: 0.3

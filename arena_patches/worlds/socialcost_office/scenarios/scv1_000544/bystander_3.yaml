@@ -1,0 +1,138 @@
+name: scv1_bystander_3
+mode: behavior_tree
+extends: adult
+initial_sequence: main
+desired_velocity:
+  mean: 0.877
+  std: 0.0
+  clip_low: 0.2
+  clip_high: 2.0
+sequences:
+  main:
+    steps:
+      s00:
+        duration:
+          mean: 0.95
+          std: 0.0
+      s01:
+        kind: go_to
+        target_pose:
+          x: 27.225
+          y: 11.325
+          theta: -1.5923
+      s02:
+        kind: go_to
+        target_pose:
+          x: 28.375
+          y: 10.125
+          theta: -0.8067
+      s03:
+        kind: go_to
+        target_pose:
+          x: 28.375
+          y: 7.325
+          theta: -1.5708
+      s04:
+        kind: go_to
+        target_pose:
+          x: 29.35
+          y: 5.2
+          theta: -1.1406
+      s05:
+        kind: go_to
+        target_pose:
+          x: 30.325
+          y: 3.075
+          theta: -1.1406
+      s06:
+        duration:
+          mean: 2.75
+          std: 0.0
+      s07:
+        kind: go_to
+        target_pose:
+          x: 28.375
+          y: 5.075
+          theta: 2.3435
+      s08:
+        kind: go_to
+        target_pose:
+          x: 28.3
+          y: 7.675
+          theta: 1.5996
+      s09:
+        kind: go_to
+        target_pose:
+          x: 28.225
+          y: 10.275
+          theta: 1.5996
+      s10:
+        kind: go_to
+        target_pose:
+          x: 26.825
+          y: 10.325
+          theta: 3.1059
+      s11:
+        kind: go_to
+        target_pose:
+          x: 25.825
+          y: 11.125
+          theta: 2.4669
+      s12:
+        kind: go_to
+        target_pose:
+          x: 22.725
+          y: 11.125
+          theta: 3.1416
+      s13:
+        kind: go_to
+        target_pose:
+          x: 19.625
+          y: 11.125
+          theta: 3.1416
+      s14:
+        kind: go_to
+        target_pose:
+          x: 18.225
+          y: 10.475
+          theta: -2.7069
+      s15:
+        duration:
+          mean: 1.31
+          std: 0.0
+      s16:
+        kind: go_to
+        target_pose:
+          x: 20.625
+          y: 10.475
+          theta: 0.0
+      s17:
+        kind: go_to
+        target_pose:
+          x: 21.875
+          y: 11.025
+          theta: 0.4145
+      s18:
+        duration:
+          mean: 0.81
+          std: 0.0
+      s19:
+        kind: go_to
+        target_pose:
+          x: 24.275
+          y: 11.025
+          theta: 0.0
+      s20:
+        kind: go_to
+        target_pose:
+          x: 27.225
+          y: 12.325
+          theta: 0.4151
+    then: main
+  rest:
+    steps:
+      hold:
+        duration:
+          mean: 1000.0
+          std: 0.0
+    then: rest

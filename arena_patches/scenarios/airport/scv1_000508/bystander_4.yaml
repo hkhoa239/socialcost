@@ -1,0 +1,50 @@
+name: scv1_bystander_4
+mode: behavior_tree
+extends: adult
+initial_sequence: main
+desired_velocity:
+  mean: 0.759
+  std: 0.0
+  clip_low: 0.2
+  clip_high: 2.0
+sequences:
+  main:
+    steps:
+      s00:
+        kind: go_to
+        target_pose:
+          x: 37.416
+          y: 18.642
+          theta: 0.6933
+      s01:
+        duration:
+          mean: 0.93
+          std: 0.0
+      s02:
+        kind: go_to
+        target_pose:
+          x: 36.901
+          y: 17.378
+          theta: -1.958
+      s03:
+        duration:
+          mean: 1.19
+          std: 0.0
+      s04:
+        kind: go_to
+        target_pose:
+          x: 35.921
+          y: 17.399
+          theta: 3.1205
+      s05:
+        duration:
+          mean: 2.37
+          std: 0.0
+    then: main
+  rest:
+    steps:
+      hold:
+        duration:
+          mean: 1000.0
+          std: 0.0
+    then: rest

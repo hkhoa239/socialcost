@@ -1,0 +1,92 @@
+name: scv1_bystander_1
+mode: behavior_tree
+extends: adult
+initial_sequence: main
+desired_velocity:
+  mean: 0.502
+  std: 0.0
+  clip_low: 0.2
+  clip_high: 2.0
+sequences:
+  main:
+    steps:
+      s00:
+        duration:
+          mean: 0.28
+          std: 0.0
+      s01:
+        kind: go_to
+        target_pose:
+          x: 11.925
+          y: 10.375
+          theta: 0.7268
+      s02:
+        kind: go_to
+        target_pose:
+          x: 13.125
+          y: 10.425
+          theta: 0.0416
+      s03:
+        kind: go_to
+        target_pose:
+          x: 15.3
+          y: 11.425
+          theta: 0.4309
+      s04:
+        kind: go_to
+        target_pose:
+          x: 17.475
+          y: 12.425
+          theta: 0.4309
+      s05:
+        duration:
+          mean: 2.16
+          std: 0.0
+      s06:
+        kind: go_to
+        target_pose:
+          x: 15.475
+          y: 10.425
+          theta: -2.3562
+      s07:
+        kind: go_to
+        target_pose:
+          x: 11.675
+          y: 10.175
+          theta: -3.0759
+      s08:
+        kind: go_to
+        target_pose:
+          x: 11.575
+          y: 7.775
+          theta: -1.6124
+      s09:
+        kind: go_to
+        target_pose:
+          x: 10.075
+          y: 4.525
+          theta: -2.0032
+      s10:
+        duration:
+          mean: 0.39
+          std: 0.0
+      s11:
+        kind: go_to
+        target_pose:
+          x: 10.1
+          y: 6.65
+          theta: 1.559
+      s12:
+        kind: go_to
+        target_pose:
+          x: 10.125
+          y: 8.775
+          theta: 1.559
+    then: main
+  rest:
+    steps:
+      hold:
+        duration:
+          mean: 1000.0
+          std: 0.0
+    then: rest
